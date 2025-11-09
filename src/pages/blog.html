@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Iván Vázquez Vidador</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body id="top">
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="../assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-house"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="about.html"><i class="fas fa-user"></i> Sobre mí</a>
+          </li>
+          <li>
+            <a href="projects.html"><i class="fas fa-code"></i> Proyectos</a>
+          </li>
+          <li>
+            <a href="cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
+          </li>
+          <li>
+            <a href="training.html"
+              ><i class="fas fa-chalkboard-teacher"></i> Formación</a
+            >
+          </li>
+          <li>
+            <a href="blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+
+        <!-- Iconos sociales integrados en el menú -->
+        <div class="social-icons">
+          <a
+            href="https://github.com/ivazquezv"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/@ivanvazquezv"
+            target="_blank"
+            aria-label="YouTube"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ivanvazquezv"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador"
+            target="_blank"
+            aria-label="Stack Overflow"
+            ><i class="fab fa-stack-overflow"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <h1>Blog técnico y estratégico</h1>
+      <p>
+        Reflexiones sobre desarrollo, seguridad, IA y transformación digital.
+      </p>
+    </main>
+
+    <!-- Índice horizontal por categoría -->
+    <section class="blog-index">
+      <nav class="blog-nav">
+        <a href="#dev"><i class="fas fa-code"></i> Desarrollo</a>
+        <a href="#security"><i class="fas fa-shield-alt"></i> Ciberseguridad</a>
+        <a href="#ai"><i class="fas fa-brain"></i> Inteligencia Artificial</a>
+        <a href="#branding"><i class="fas fa-palette"></i> Branding</a>
+        <a href="#strategy"><i class="fas fa-chart-line"></i> Estrategia</a>
+        <a href="#ux"><i class="fas fa-eye"></i> UX/UI</a>
+        <a href="#seo"><i class="fas fa-search"></i> SEO</a>
+        <a href="#devops"><i class="fas fa-cogs"></i> DevOps</a>
+        <a href="#negocio"><i class="fas fa-briefcase"></i> Negocio</a>
+        <a href="#educacion"><i class="fas fa-graduation-cap"></i> Educación</a>
+      </nav>
+    </section>
+
+    <!-- Artículos por categoría -->
+    <section class="blog-section" id="dev">
+      <h2><i class="fas fa-code"></i> Desarrollo</h2>
+      <article class="blog-card">
+        <div class="blog-meta">Publicado: 03/11/2025</div>
+        <h3>Modularizar CSS sin romper el diseño</h3>
+        <p>
+          Cómo estructurar variables, tipografía y componentes reutilizables sin
+          perder identidad visual.
+        </p>
+        <a href="post-css-modular.html" class="cta-button"
+          ><i class="fas fa-book-open"></i> Leer más</a
+        >
+      </article>
+    </section>
+
+    <section class="blog-section" id="security">
+      <h2><i class="fas fa-shield-alt"></i> Ciberseguridad</h2>
+      <article class="blog-card">
+        <div class="blog-meta">Publicado: 28/10/2025</div>
+        <h3>Zero Trust aplicado a entornos web</h3>
+        <p>
+          Principios clave para implementar autenticación, segmentación y
+          auditoría continua en proyectos web.
+        </p>
+        <a href="post-zero-trust.html" class="cta-button"
+          ><i class="fas fa-book-open"></i> Leer más</a
+        >
+      </article>
+    </section>
+
+    <section class="blog-section" id="ai">
+      <h2><i class="fas fa-brain"></i> Inteligencia Artificial</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="branding">
+      <h2><i class="fas fa-palette"></i> Branding</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="strategy">
+      <h2><i class="fas fa-chart-line"></i> Estrategia</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="ux">
+      <h2><i class="fas fa-eye"></i> UX/UI</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="seo">
+      <h2><i class="fas fa-search"></i> SEO</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="devops">
+      <h2><i class="fas fa-cogs"></i> DevOps</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="negocio">
+      <h2><i class="fas fa-briefcase"></i> Negocio</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <section class="blog-section" id="educacion">
+      <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
+      <p class="blog-empty">Artículos futuros en preparación.</p>
+    </section>
+
+    <!-- Más secciones: IA, Branding, Estrategia... -->
+
+    <footer class="footer">
+      <p>&copy; 2025 Iván Vázquez Vidador</p>
+    </footer>
+
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

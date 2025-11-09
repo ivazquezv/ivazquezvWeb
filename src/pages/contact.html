@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Iván Vázquez Vidador</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body id="top">
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="../assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="index.html"><i class="fas fa-house"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="about.html"><i class="fas fa-user"></i> Sobre mí</a>
+          </li>
+          <li>
+            <a href="projects.html"><i class="fas fa-code"></i> Proyectos</a>
+          </li>
+          <li>
+            <a href="cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
+          </li>
+          <li>
+            <a href="training.html"
+              ><i class="fas fa-chalkboard-teacher"></i> Formación</a
+            >
+          </li>
+          <li>
+            <a href="blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contacto</a>
+          </li>
+        </ul>
+
+        <!-- Iconos sociales integrados en el menú -->
+        <div class="social-icons">
+          <a
+            href="https://github.com/ivazquezv"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/@ivanvazquezv"
+            target="_blank"
+            aria-label="YouTube"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ivanvazquezv"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador"
+            target="_blank"
+            aria-label="Stack Overflow"
+            ><i class="fab fa-stack-overflow"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <h1>Contacto directo</h1>
+      <p>¿Tienes una propuesta, duda o colaboración? Envíame un mensaje.</p>
+    </main>
+
+    <section class="contact-form">
+      <form id="contactForm">
+        <p class="form-note">
+          <i class="fas fa-info-circle"></i> Todos los campos son obligatorios.
+        </p>
+
+        <label for="name"
+          ><i class="fas fa-user"></i> Nombre
+          <span class="required">*</span></label
+        >
+        <input
+          type="text"
+          id="name"
+          name="user_name"
+          required
+          aria-required="true"
+        />
+
+        <label for="email"
+          ><i class="fas fa-envelope"></i> Correo electrónico
+          <span class="required">*</span></label
+        >
+        <input
+          type="email"
+          id="email"
+          name="user_email"
+          required
+          aria-required="true"
+        />
+
+        <label for="phone"
+          ><i class="fas fa-phone"></i> Teléfono
+          <span class="required">*</span></label
+        >
+        <input
+          type="tel"
+          id="phone"
+          name="user_phone"
+          required
+          aria-required="true"
+          pattern="[0-9+\s\-]{7,}"
+        />
+
+        <label for="message"
+          ><i class="fas fa-comment-dots"></i> Mensaje
+          <span class="required">*</span></label
+        >
+        <textarea
+          id="message"
+          name="message"
+          rows="6"
+          required
+          aria-required="true"
+        ></textarea>
+
+        <button type="submit" class="cta-button">
+          <i class="fas fa-paper-plane"></i> Enviar
+        </button>
+      </form>
+
+      <p id="form-status" class="form-status"></p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Iván Vázquez Vidador</p>
+    </footer>
+
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init("P-MYFtgGFfMP9k_Us"); // Reemplaza con tu clave pública de EmailJS
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          emailjs.sendForm("service_n73sae3", "template_7nxd0cn", this).then(
+            function () {
+              document.getElementById("form-status").textContent =
+                "Mensaje enviado correctamente.";
+              document.getElementById("contactForm").reset();
+            },
+            function (error) {
+              document.getElementById("form-status").textContent =
+                "Error al enviar. Revisa los campos o intenta más tarde.";
+              console.error("EmailJS error:", error);
+            }
+          );
+        });
+    </script>
+  </body>
+</html>

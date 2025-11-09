@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error 404 | Iván Vázquez Vidador</title>
+    <link rel="stylesheet" href="../src/styles/main.css" />
+    <link rel="icon" href="../../public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem;
+        text-align: center;
+        background-color: var(--color-bg);
+      }
+
+      .error-code {
+        font-size: 6rem;
+        font-weight: bold;
+        color: var(--color-accent);
+        margin-bottom: 1rem;
+      }
+
+      .error-message {
+        font-size: 1.5rem;
+        color: var(--color-muted);
+        margin-bottom: 2rem;
+      }
+
+      .error-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .error-actions a {
+        background-color: var(--color-accent-dark);
+        color: var(--color-text);
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .error-actions a:hover {
+        background-color: var(--color-accent-hover);
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="../src/assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="../src/pages/index.html"
+              ><i class="fas fa-house"></i> Inicio</a
+            >
+          </li>
+          <li>
+            <a href="../src/pagesabout.html"
+              ><i class="fas fa-user"></i> Sobre mí</a
+            >
+          </li>
+          <li>
+            <a href="../src/pagesprojects.html"
+              ><i class="fas fa-code"></i> Proyectos</a
+            >
+          </li>
+          <li>
+            <a href="../src/pagescv.html"
+              ><i class="fas fa-file-alt"></i> Trayectoria</a
+            >
+          </li>
+          <li>
+            <a href="../src/pagesblog.html"
+              ><i class="fas fa-pen-nib"></i> Blog</a
+            >
+          </li>
+          <li>
+            <a href="../src/pagescontact.html"
+              ><i class="fas fa-envelope"></i> Contacto</a
+            >
+          </li>
+        </ul>
+        <div class="social-icons">
+          <a
+            href="https://github.com/ivazquezv"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.youtube.com/@ivanvazquezv"
+            target="_blank"
+            aria-label="YouTube"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/ivanvazquezv"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador"
+            target="_blank"
+            aria-label="Stack Overflow"
+            ><i class="fab fa-stack-overflow"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="error-container">
+      <div class="error-code">404</div>
+      <img
+        src="../src/assets/icons/error-404.gif"
+        alt="error-404"
+        class="error-message-img"
+      />
+      <div class="error-message">
+        La página que buscas no existe o ha sido movida.
+      </div>
+      <div class="error-actions">
+        <a href="../src/pages/index.html"
+          ><i class="fas fa-arrow-left"></i> Volver al inicio</a
+        >
+        <a href="../src/pages/contact.html"
+          ><i class="fas fa-envelope"></i> Contactar</a
+        >
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; 2025 Iván Vázquez Vidador</p>
+    </footer>
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>
