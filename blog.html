@@ -103,6 +103,9 @@
       <nav class="blog-nav">
         <a href="#dev"><i class="fas fa-code"></i> Desarrollo</a>
         <a href="#security"><i class="fas fa-shield-alt"></i> Ciberseguridad</a>
+        <a href="#encryption"
+          ><i class="fas fa-lock"></i> Encriptación de datos</a
+        >
         <a href="#ai"><i class="fas fa-brain"></i> Inteligencia Artificial</a>
         <a href="#branding"><i class="fas fa-palette"></i> Branding</a>
         <a href="#strategy"><i class="fas fa-chart-line"></i> Estrategia</a>
@@ -117,16 +120,19 @@
     <!-- Artículos por categoría -->
     <section class="blog-section" id="dev">
       <h2><i class="fas fa-code"></i> Desarrollo</h2>
+
       <article class="blog-card">
-        <div class="blog-meta">Publicado: 03/11/2025</div>
-        <h3>Modularizar CSS sin romper el diseño</h3>
+        <div class="blog-meta">Publicado: 15/11/2025</div>
+        <h3>Despliegues reproducibles en Netlify con GitHub</h3>
         <p>
-          Cómo estructurar variables, tipografía y componentes reutilizables sin
-          perder identidad visual.
+          Guía práctica para automatizar builds, configurar
+          <code>netlify.toml</code>, y mantener entornos consistentes usando
+          ramas y contextos. Aprende a validar cada paso y documentar tu flujo
+          de trabajo como un profesional.
         </p>
-        <a href="post-css-modular.html" class="cta-button"
-          ><i class="fas fa-book-open"></i> Leer más</a
-        >
+        <a href="/src/pages/post/post-netlify-github.html" class="cta-button">
+          <i class="fas fa-book-open"></i> Leer más
+        </a>
       </article>
     </section>
 
@@ -139,10 +145,119 @@
           Principios clave para implementar autenticación, segmentación y
           auditoría continua en proyectos web.
         </p>
-        <a href="post-zero-trust.html" class="cta-button"
-          ><i class="fas fa-book-open"></i> Leer más</a
-        >
+        <a href="/src/pages/post/post-zero-trust.html" class="cta-button">
+          <i class="fas fa-book-open"></i> Leer más
+        </a>
       </article>
+    </section>
+
+    <!-- Nueva sección: Encriptación de datos (lanzamiento de producto) -->
+    <section class="blog-section" id="encryption">
+      <h2><i class="fas fa-lock"></i> Encriptación de datos</h2>
+
+      <!-- Lanzamiento: Encryptify (actualizado) -->
+      <article class="blog-card project-card">
+        <div class="blog-meta">Lanzamiento: 2024 · Producto</div>
+        <h3><i class="fas fa-shield"></i> Encryptify</h3>
+        <p>
+          Presentamos <strong>Encryptify</strong>, una aplicación de escritorio
+          desarrollada en <strong>Java Swing</strong> que permite cifrar y
+          verificar integridad de ficheros multimedia y contenedores: audio,
+          vídeo, imágenes, PDF e imágenes ISO. Encryptify combina algoritmos de
+          cifrado clásicos y modernos y ofrece modos de uso gratuitos para
+          estudiantes y licencias de pago para usos forenses y legales de
+          hashing y encriptado.
+        </p>
+
+        <ul class="product-highlights">
+          <li>
+            <i class="fas fa-desktop"></i>
+            <strong>Aplicación de escritorio</strong> construida en Java Swing,
+            multiplataforma
+          </li>
+          <li>
+            <i class="fas fa-exchange-alt"></i>
+            <strong>Cifrado híbrido</strong> con librerías que soportan
+            algoritmos clásicos y modernos
+          </li>
+          <li>
+            <i class="fas fa-file-audio"></i>
+            <strong>Soporte de formatos</strong>: audio, vídeo, imágenes, PDF e
+            imágenes ISO
+          </li>
+          <li>
+            <i class="fas fa-fingerprint"></i>
+            <strong>Hashes forenses</strong> y trazabilidad para uso legal y
+            pericial
+          </li>
+          <li>
+            <i class="fas fa-user-shield"></i>
+            <strong>Modelo de licencias</strong>: gratuito para estudiantes;
+            licencias de pago para uso forense/legal
+          </li>
+          <li>
+            <i class="fas fa-file-download"></i>
+            <strong>Exportación de evidencias</strong> con metadatos y registros
+            de proceso
+          </li>
+        </ul>
+
+        <div class="launch-cta" style="margin-top: 1rem">
+          <a
+            href="https://encryptifydata.com"
+            class="cta-button"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-lock"></i> Visitar Encryptify
+          </a>
+          <a
+            href="https://encryptifydata.com/downloads"
+            class="cta-button"
+            style="
+              margin-left: 0.75rem;
+              background: transparent;
+              border: 1px solid var(--color-accent);
+              color: var(--color-accent);
+            "
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-download"></i> Descargar
+          </a>
+          <a
+            href="https://encryptifydata.com/pricing-planes"
+            class="cta-button"
+            style="
+              margin-left: 0.75rem;
+              background: transparent;
+              border: 1px solid var(--color-accent);
+              color: var(--color-accent);
+            "
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fas fa-file-invoice-dollar"></i> Licencias
+          </a>
+        </div>
+      </article>
+
+      <br />
+
+      <!-- Nota contextual actualizada -->
+      <div class="post-callout">
+        <strong><i class="fas fa-info-circle"></i> Importante:</strong>
+        Encryptify es una herramienta diseñada para labores educativas y
+        profesionales. La versión gratuita cubre necesidades formativas para
+        estudiantes; la licencia comercial/forense habilita funcionalidades
+        avanzadas de hashing, exportación de evidencia y soporte para uso legal.
+        Para descargas, documentación técnica y condiciones de licencia visita <br>
+        <a href="https://encryptifydata.com" target="_blank" rel="noopener"
+          ><i class="fas fa-external-link-alt"></i> encryptifydata.com</a
+        >.
+      </div>
+
+      </ul>
     </section>
 
     <section class="blog-section" id="ai">
@@ -184,8 +299,6 @@
       <h2><i class="fas fa-graduation-cap"></i> Educación</h2>
       <p class="blog-empty">Artículos futuros en preparación.</p>
     </section>
-
-    <!-- Más secciones: IA, Branding, Estrategia... -->
 
     <footer class="footer">
       <p>&copy; 2025 Iván Vázquez Vidador</p>

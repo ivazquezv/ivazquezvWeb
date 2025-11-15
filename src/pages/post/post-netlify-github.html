@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Despliegues reproducibles en Netlify con GitHub</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="/src/assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/index.html"><i class="fas fa-house"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="blog-post">
+      <article class="post-content">
+        <div class="blog-meta">Publicado: 15/11/2025</div>
+        <h1>
+          <i class="fas fa-rocket"></i> Despliegues reproducibles en Netlify con
+          GitHub
+        </h1>
+
+        <p>
+          Automatizar el despliegue de proyectos estáticos es clave para
+          mantener consistencia, velocidad y profesionalismo. En este artículo
+          te muestro cómo configurar Netlify y GitHub para lograr despliegues
+          reproducibles, documentados y alineados con buenas prácticas. Esta
+          guía está pensada para desarrolladores que buscan claridad operativa,
+          control sobre su infraestructura y una experiencia de despliegue sin
+          sorpresas.
+        </p>
+
+        <div class="post-image">
+          <img
+            src="/src/assets/images/post/post-netlify-github/netlify.com-ivan-vazquez.jpg"
+            alt="Panel de despliegue en Netlify"
+            style="
+              width: 100%;
+              border-radius: 8px;
+              margin: 2rem 0;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            "
+          />
+        </div>
+
+        <h2>
+          <i class="fas fa-code-branch"></i> 1. Estructura del repositorio
+        </h2>
+        <p>
+          Todo comienza con una estructura de repositorio clara. Usa una rama
+          principal llamada <strong>main</strong> y elimina
+          <strong>master</strong> si ya no se utiliza. Organiza tu código en
+          carpetas como <code>src/</code> para el contenido fuente,
+          <code>assets/</code> para imágenes y recursos estáticos, y
+          <code>pages/</code> si usas un generador de sitios.
+        </p>
+
+        <p>
+          Incluye un <code>README.md</code> detallado que explique cómo clonar,
+          instalar dependencias, construir y desplegar el proyecto. Añadir un
+          <code>CHANGELOG.md</code> te permitirá llevar un control de versiones
+          y comunicar cambios de forma profesional.
+        </p>
+
+        <h2>
+          <i class="fas fa-file-code"></i> 2. Configuración con
+          <code>netlify.toml</code>
+        </h2>
+        <p>
+          El archivo <code>netlify.toml</code> es el corazón de un despliegue
+          reproducible. Define el directorio de publicación, el comando de build
+          y los contextos por rama. Aquí tienes un ejemplo básico:
+        </p>
+
+        <pre><code>[build]
+publish = "dist"
+command = "npm run build"
+
+[context.production]
+environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+environment = { NODE_ENV = "preview" }
+        </code></pre>
+
+        <p>
+          Con esto evitas configuraciones manuales en el panel de Netlify y
+          aseguras que cualquier clon del repositorio pueda desplegarse con los
+          mismos resultados. Añade también una sección en el README que explique
+          los contextos y variables usadas en <code>netlify.toml</code>.
+        </p>
+
+        <h2><i class="fas fa-cogs"></i> 2.1 Variables y secretos</h2>
+        <p>
+          Evita poner secretos en el repositorio. Usa el panel de Netlify o la
+          API para inyectar variables de entorno en cada contexto. Proporciona
+          un archivo <code>.env.example</code> que documente las variables
+          necesarias y sus valores esperados.
+        </p>
+
+        <h2><i class="fas fa-sync-alt"></i> 3. Automatización con GitHub</h2>
+        <p>
+          Una vez conectado tu repositorio a Netlify, cada push a
+          <strong>main</strong> puede activar un despliegue automático. Esto
+          convierte tu flujo en un sistema CI/CD sin necesidad de configurar
+          GitHub Actions. Puedes usar etiquetas como
+          <code>[skip netlify]</code> en tus commits para evitar despliegues
+          innecesarios.
+        </p>
+
+        <p>
+          Si prefieres controlar pasos adicionales (tests, linters, publishing a
+          paquetes) puedes integrar GitHub Actions. Un ejemplo breve de flujo:
+        </p>
+
+        <pre><code>name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+        </code></pre>
+
+        <p>
+          En este caso puedes combinar GitHub Actions para validar y generar el
+          artefacto y dejar que Netlify o la propia acción de Netlify se
+          encargue del despliegue final.
+        </p>
+
+        <div class="post-image">
+          <img
+            src="/src/assets/images/post/post-netlify-github/netlify.com2-ivan-vazquez.jpg"
+            alt="Panel de despliegue en Netlify"
+            style="
+              width: 100%;
+              border-radius: 8px;
+              margin: 2rem 0;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            "
+          />
+        </div>
+
+        <h2>
+          <i class="fas fa-shield-alt"></i> 4. Validación y reproducibilidad
+        </h2>
+        <p>
+          La reproducibilidad no es solo técnica, también es documental. Antes
+          de hacer push, ejecuta <code>npm run build</code> localmente y
+          asegúrate de que el resultado es el esperado. Incluye scripts claros
+          en <code>package.json</code> (por ejemplo <code>build</code>,
+          <code>test</code>, <code>lint</code>) para que cualquiera pueda
+          reproducir el flujo.
+        </p>
+
+        <p>
+          Usa un archivo <code>.env.example</code>, documenta procesos y añade
+          checks en CI que fallen el pipeline si el build no es idéntico al
+          esperado. Generar artefactos reproducibles ayuda en auditorías y en la
+          resolución de incidencias.
+        </p>
+
+        <h2><i class="fas fa-book"></i> 5. Buenas prácticas</h2>
+        <ul>
+          <li>
+            <strong>Evita configuraciones manuales</strong> en el panel de
+            Netlify: usa <code>netlify.toml</code>
+          </li>
+          <li>
+            <strong>Documenta cada paso</strong> en el repositorio: desde
+            instalación hasta despliegue
+          </li>
+          <li>
+            <strong>Usa ramas contextuales</strong> para staging, preview y
+            producción
+          </li>
+          <li>
+            <strong>Valida el build localmente</strong> antes de hacer push
+          </li>
+          <li>
+            <strong>Incluye un changelog</strong> para comunicar cambios de
+            forma clara
+          </li>
+          <li>
+            <strong>Automatiza todo lo que puedas</strong>, pero sin perder
+            control del proceso
+          </li>
+          <li>
+            <strong>Versiona dependencias</strong> y fija resoluciones para
+            evitar cambios inesperados en builds
+          </li>
+        </ul>
+
+        <h2><i class="fas fa-link"></i> Enlaces de interés</h2>
+        <ul>
+          <li>
+            <a href="https://www.netlify.com/" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i> Página oficial de Netlify
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://docs.netlify.com/configure-builds/file-based-configuration/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-file-alt"></i> Documentación oficial sobre
+              <code>netlify.toml</code>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://docs.netlify.com/configure-builds/get-started/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-cogs"></i> Guía para configurar builds en Netlify
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://docs.netlify.com/site-deploys/overview/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-rocket"></i> Cómo funciona el sistema de
+              despliegue
+            </a>
+          </li>
+          <li>
+            <a href="https://app.netlify.com/" target="_blank" rel="noopener">
+              <i class="fas fa-sign-in-alt"></i> Accede a tu panel de Netlify
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://docs.netlify.com/configure-builds/troubleshooting/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-tools"></i> Solución de problemas en builds
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://docs.netlify.com/cli/get-started/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-terminal"></i> Netlify CLI
+            </a>
+          </li>
+        </ul>
+
+        <h2><i class="fas fa-lightbulb"></i> Conclusión</h2>
+        <p>
+          Un despliegue reproducible no es solo una cuestión técnica: es una
+          declaración de principios. Significa que valoras la claridad, la
+          eficiencia y la colaboración. En un mundo donde los proyectos cambian
+          rápido y los equipos son cada vez más distribuidos, tener un flujo de
+          trabajo predecible y documentado es una ventaja competitiva.
+        </p>
+
+        <p>
+          Si estás empezando con Netlify o quieres profesionalizar tu flujo de
+          despliegue, empieza por estructurar tu repositorio, automatizar con
+          <code>netlify.toml</code> y validar cada paso. Tu yo del futuro (y tus
+          colaboradores) te lo agradecerán.
+        </p>
+
+        <div class="post-author">
+          <hr />
+          <div
+            class="author-info"
+            style="display: flex; align-items: center; gap: 1.5rem"
+          >
+            <img
+              src="/src/assets/images/ivan-profile.jpg"
+              alt="Foto de Iván Vázquez Vidador"
+              style="
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-accent);
+              "
+            />
+            <div>
+              <p><strong>Iván Vázquez Vidador</strong></p>
+              <p>
+                Desarrollador, arquitecto de software y director técnico.
+                Creador de <em>Encryptify</em> y especialista en despliegues
+                reproducibles, documentación técnica y migración de dominios.
+                Apasionado por la claridad operativa y la excelencia técnica.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/ivazquezv"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                ·
+                <a
+                  href="https://www.youtube.com/@ivanvazquezv"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-youtube"></i> YouTube</a
+                >
+                ·
+                <a href="/contact.html"
+                  ><i class="fas fa-envelope"></i> Contacto</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-actions">
+          <a href="/blog.html" class="cta-button">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Iván Vázquez Vidador</p>
+    </footer>
+
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    <script src="/src/scripts/main.js"></script>
+  </body>
+</html>
