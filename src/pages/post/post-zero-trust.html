@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zero Trust aplicado a entornos web</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="/src/assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="/index.html"><i class="fas fa-house"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="blog-post">
+      <article class="post-content">
+        <div class="blog-meta">Publicado: 28/10/2025</div>
+
+        <h1>
+          <i class="fas fa-shield-virus"></i> Zero Trust aplicado a entornos web
+        </h1>
+
+        <p>
+          Zero Trust ya no es solo una moda: es un marco operativo para diseñar
+          sistemas web seguros en entornos distribuidos. En este artículo
+          repasamos los principios clave y las decisiones prácticas para
+          implementar autenticación fuerte, segmentación, mínimos privilegios y
+          auditoría continua en proyectos web modernos.
+        </p>
+
+        <div class="post-image">
+          <img
+            src="/src/assets/images/post/post-zero-trust/arquitectura-zero-trust-aplicado-a-la-web.jpg"
+            alt="Arquitectura Zero Trust aplicada a web"
+            style="
+              width: 100%;
+              border-radius: 8px;
+              margin: 2rem 0;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            "
+          />
+        </div>
+
+        <h2>
+          <i class="fas fa-bullseye"></i> 1. Principio fundamental: nunca
+          confiar, siempre verificar
+        </h2>
+        <p>
+          Zero Trust parte de la premisa de que ningún actor, usuario o servicio
+          es de confianza por defecto. Esto implica autenticar y autorizar cada
+          petición, independientemente de su origen. Para entornos web,
+          significa aplicar controles en el borde (reverse proxies, WAF) y en el
+          plano de aplicación (tokens, scopes, claims).
+        </p>
+
+        <h2>
+          <i class="fas fa-user-lock"></i> 2. Autenticación y autorización
+          robusta
+        </h2>
+        <p>
+          Implementa autenticación multifactor (MFA) y delega identidad en
+          proveedores compatibles con estándares (OIDC, OAuth2). Usa tokens de
+          corto vencimiento, revocación y rotación de claves. En autorización,
+          aplica controles basados en roles (RBAC) o atributos (ABAC) según la
+          complejidad del dominio.
+        </p>
+
+        <h3><i class="fas fa-key"></i> Recomendaciones prácticas</h3>
+        <ul>
+          <li>
+            <strong>OIDC/OAuth2</strong> para delegar autenticación y manejar
+            consent
+          </li>
+          <li>
+            <strong>MFA</strong> para accesos sensibles y paneles
+            administrativos
+          </li>
+          <li>
+            <strong>Short-lived tokens</strong> y refresh tokens con protección
+          </li>
+          <li><strong>Revisión periódica</strong> de roles y permisos</li>
+        </ul>
+
+        <h2>
+          <i class="fas fa-network-wired"></i> 3. Segmentación y mínimos
+          privilegios
+        </h2>
+        <p>
+          Segmentar redes y servicios reduce el blast radius. Aplica políticas
+          de acceso específicas por servicio, limita el acceso a bases de datos
+          y gestiona secrets con un vault centralizado. Para arquitecturas
+          serverless o microservicios, utiliza mTLS, API gateways y políticas de
+          servicio a servicio.
+        </p>
+
+        <h2>
+          <i class="fas fa-eye"></i> 4. Observabilidad y auditoría continua
+        </h2>
+        <p>
+          La detección temprana requiere trazas, logs centralizados y métricas.
+          Entra en juego el logging inmutable, alertas basadas en anomalías y
+          auditoría de acciones privilegiadas. Implementa retención de logs
+          acorde a cumplimiento y conserva evidencias para forense cuando sea
+          necesario.
+        </p>
+
+        <h3><i class="fas fa-clipboard-check"></i> Qué registrar</h3>
+        <ul>
+          <li>Autenticaciones exitosas y fallidas</li>
+          <li>Operaciones privilegiadas y cambios de configuración</li>
+          <li>Accesos a secrets y servicios críticos</li>
+        </ul>
+
+        <h2>
+          <i class="fas fa-wrench"></i> 5. Automatización y pruebas de seguridad
+        </h2>
+        <p>
+          Integra pruebas de seguridad en tu pipeline: SAST, DAST, dependabot y
+          escaneos de imágenes (si usas contenedores). Automatiza rotación de
+          certificados, pruebas de reconstrucción y validaciones post-deploy.
+        </p>
+
+        <pre><code># Ejemplo simple: script de comprobación post-deploy
+curl -sSf https://mi-sitio.example.com/health || (echo "Health check fallido" && exit 1)</code></pre>
+
+        <h2>
+          <i class="fas fa-user-shield"></i> 6. Gestión de secretos y vaults
+        </h2>
+        <p>
+          No dejes secretos en el código. Usa soluciones gestionadas (HashiCorp
+          Vault, cloud KMS) o variables de entorno gestionadas por la
+          plataforma. Controla accesos con políticas y audita lecturas de
+          secretos.
+        </p>
+
+        <h2>
+          <i class="fas fa-bolt"></i> 7. Integración con Zero Trust Network
+          Access (ZTNA)
+        </h2>
+        <p>
+          Considera ZTNA para accesos a entornos internos y paneles de gestión.
+          ZTNA provee acceso contextual y temporal, reduciendo la necesidad de
+          VPNs permanentes y mejorando el control por identidad y dispositivo.
+        </p>
+
+        <h2><i class="fas fa-book"></i> 8. Buenas prácticas resumidas</h2>
+        <ul>
+          <li>
+            <strong>Principio de mínimos privilegios</strong> en todos los
+            niveles
+          </li>
+          <li><strong>Autenticación fuerte</strong> y tokens de corta vida</li>
+          <li><strong>Segmentación</strong> de servicios y redes</li>
+          <li><strong>Observabilidad</strong> y logging inmutable</li>
+          <li>
+            <strong>Automatización</strong> de pruebas y despliegues seguros
+          </li>
+          <li>
+            <strong>Gestión segura de secretos</strong> y rotación periódica
+          </li>
+        </ul>
+
+        <h2><i class="fas fa-link"></i> Enlaces de interés</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.cisa.gov/zero-trust"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-external-link-alt"></i> CISA - Zero Trust
+              Maturity Model
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://cloud.google.com/solutions/zero-trust"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-cloud"></i> Google Cloud - Zero Trust guides
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.cloudflare.com/learning/zero-trust/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-shield-alt"></i> Cloudflare - Zero Trust overview
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://owasp.org/www-project-top-ten/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-book-open"></i> OWASP Top Ten (referencia para
+              seguridad web)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.ncsc.gov.uk/collection/zero-trust"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-university"></i> NCSC - Zero Trust guidance
+            </a>
+          </li>
+        </ul>
+
+        <h2><i class="fas fa-lightbulb"></i> Conclusión</h2>
+        <p>
+          Implementar Zero Trust en proyectos web requiere disciplina: diseño de
+          identidad, segmentación, observabilidad y automatización. No es un
+          producto, es un proceso continuo que reduce riesgos y mejora la
+          resiliencia del sistema.
+        </p>
+        <p>
+          Empieza por lo básico: autentica todas las peticiones, limita
+          privilegios, centraliza el logging y automatiza comprobaciones en
+          CI/CD. Itera y mide, y tendrás una base sólida para escalar seguridad
+          sin fricciones.
+        </p>
+
+        <div class="post-author">
+          <hr />
+          <div
+            class="author-info"
+            style="display: flex; align-items: center; gap: 1.5rem"
+          >
+            <img
+              src="/src/assets/images/ivan-profile.jpg"
+              alt="Foto de Iván Vázquez Vidador"
+              style="
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-accent);
+              "
+            />
+            <div>
+              <p><strong>Iván Vázquez Vidador</strong></p>
+              <p>
+                Desarrollador y arquitecto de software con foco en seguridad
+                operativa, despliegues reproducibles y documentación técnica.
+                Director técnico y creador de proyectos como Encryptify. Combino
+                práctica y estrategia para construir sistemas fiables y
+                mantenibles.
+              </p>
+              <p>
+                <a
+                  href="https://github.com/ivazquezv"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-github"></i> GitHub</a
+                >
+                ·
+                <a
+                  href="https://www.youtube.com/@ivanvazquezv"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-youtube"></i> YouTube</a
+                >
+                ·
+                <a href="/contact.html"
+                  ><i class="fas fa-envelope"></i> Contacto</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-actions">
+          <a href="/blog.html" class="cta-button">
+            <i class="fas fa-arrow-left"></i> Volver al blog
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Iván Vázquez Vidador</p>
+    </footer>
+
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="/src/scripts/main.js"></script>
+  </body>
+</html>
