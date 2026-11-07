@@ -4,7 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formación | Iván Vázquez Vidador</title>
+  <title>Formación y certificaciones | Iván Vázquez Vidador</title>
+  <meta name="description" content="Formación académica, certificaciones y habilidades técnicas de Iván Vázquez Vidador en desarrollo de software, Java y tecnologías web." />
+  <link rel="canonical" href="https://ivanvazquezv.com/training.html" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Iván Vázquez Vidador" />
+  <meta property="og:title" content="Formación y certificaciones | Iván Vázquez Vidador" />
+  <meta property="og:description" content="Formación académica, certificaciones y habilidades técnicas de Iván Vázquez Vidador en desarrollo de software, Java y tecnologías web." />
+  <meta property="og:url" content="https://ivanvazquezv.com/training.html" />
+  <meta property="og:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
+  <meta property="og:image:alt" content="Iván Vázquez Vidador" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Formación y certificaciones | Iván Vázquez Vidador" />
+  <meta name="twitter:description" content="Formación académica, certificaciones y habilidades técnicas de Iván Vázquez Vidador en desarrollo de software, Java y tecnologías web." />
+  <meta name="twitter:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
   <link rel="stylesheet" href="/main.css" />
   <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -12,6 +26,7 @@
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <header class="navbar">
     <div class="logo">
       <div class="logo-wrapper">
@@ -20,56 +35,56 @@
       <span>Iván Vázquez Vidador</span>
     </div>
 
-    <button class="hamburger" aria-label="Abrir menú">
+    <button class="hamburger" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false">
       <i class="fas fa-bars"></i>
     </button>
 
-    <nav class="nav-menu">
+    <nav class="nav-menu" id="main-navigation" aria-label="Navegación principal">
       <ul>
         <li>
-          <a href="index.html"><i class="fas fa-house"></i> Inicio</a>
+          <a href="/"><i class="fas fa-house"></i> Inicio</a>
         </li>
         <li>
-          <a href="about.html"><i class="fas fa-user"></i> Sobre mí</a>
+          <a href="/about.html"><i class="fas fa-user"></i> Sobre mí</a>
         </li>
         <li>
-          <a href="projects.html"><i class="fas fa-code"></i> Proyectos</a>
+          <a href="/projects.html"><i class="fas fa-code"></i> Proyectos</a>
         </li>
         <li>
-          <a href="cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
+          <a href="/cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
         </li>
         <li>
-          <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> Formación</a>
+          <a href="/training.html" aria-current="page"><i class="fas fa-chalkboard-teacher"></i> Formación</a>
         </li>
         <li>
-          <a href="blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
         </li>
         <li>
-          <a href="contact.html"><i class="fas fa-envelope"></i> Contacto</a>
+          <a href="/contact.html"><i class="fas fa-envelope"></i> Contacto</a>
         </li>
       </ul>
 
       <!-- Iconos sociales integrados en el menú -->
       <div class="social-icons">
-        <a href="https://github.com/ivazquezv" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/ivazquezv" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
 
-        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" aria-label="YouTube">
+        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
 
-        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
 
-        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank"
+        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank" rel="noopener noreferrer"
           aria-label="Stack Overflow">
           <i class="fab fa-stack-overflow"></i>
         </a>
 
         <!-- Nuevo: LinkedIn -->
-        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -77,13 +92,14 @@
     </nav>
   </header>
 
-  <main class="hero">
+  <main id="main-content">
+  <section class="hero">
     <h1>Formación y Certificaciones</h1>
     <p>
       Recorrido académico, técnico y profesional que respalda mi experiencia
       como desarrollador y formador.
     </p>
-  </main>
+  </section>
 
   <section class="project-index">
     <nav class="project-nav">
@@ -265,7 +281,7 @@
       <!-- Nuevo curso añadido -->
       <li>
         Analista de Datos (2026) – Edutin Academy
-        <a href="https://app.edutin.com/verify/18861827" target="_blank">
+        <a href="https://app.edutin.com/verify/18861827" target="_blank" rel="noopener noreferrer">
           <i class="fas fa-file-alt"></i> Ver certificado
         </a>
       </li>
@@ -302,8 +318,9 @@
     </a>
   </section>
 
+  </main>
   <footer class="footer">
-    <p>&copy; 2025 Iván Vázquez Vidador</p>
+    <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
   </footer>
 
   <a href="#top" class="scroll-top" aria-label="Volver arriba" title="Volver al inicio de la página">

@@ -3,7 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Despliegues reproducibles en Netlify con GitHub</title>
+    <title>Despliegues en Netlify con GitHub | Iván Vázquez Vidador</title>
+  <meta name="description" content="Guía de despliegues reproducibles en Netlify con GitHub: conecta tu repositorio y organiza la publicación de tu proyecto web." />
+  <link rel="canonical" href="https://ivanvazquezv.com/src/pages/post/post-netlify-github.html" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Iván Vázquez Vidador" />
+  <meta property="og:title" content="Despliegues en Netlify con GitHub | Iván Vázquez Vidador" />
+  <meta property="og:description" content="Guía de despliegues reproducibles en Netlify con GitHub: conecta tu repositorio y organiza la publicación de tu proyecto web." />
+  <meta property="og:url" content="https://ivanvazquezv.com/src/pages/post/post-netlify-github.html" />
+  <meta property="og:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
+  <meta property="og:image:alt" content="Iván Vázquez Vidador" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Despliegues en Netlify con GitHub | Iván Vázquez Vidador" />
+  <meta name="twitter:description" content="Guía de despliegues reproducibles en Netlify con GitHub: conecta tu repositorio y organiza la publicación de tu proyecto web." />
+  <meta name="twitter:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
     <link rel="stylesheet" href="/main.css" />
     <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
     <link
@@ -17,7 +31,8 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <header class="navbar">
       <div class="logo">
         <div class="logo-wrapper">
@@ -30,14 +45,14 @@
         <span>Iván Vázquez Vidador</span>
       </div>
 
-      <button class="hamburger" aria-label="Abrir menú">
+      <button class="hamburger" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
 
-      <nav class="nav-menu">
+      <nav class="nav-menu" id="main-navigation" aria-label="Navegación principal">
         <ul>
           <li>
-            <a href="/index.html"><i class="fas fa-house"></i> Inicio</a>
+            <a href="/"><i class="fas fa-house"></i> Inicio</a>
           </li>
           <li>
             <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
@@ -46,7 +61,7 @@
       </nav>
     </header>
 
-    <main class="blog-post">
+    <main id="main-content" class="blog-post">
       <article class="post-content">
         <div class="blog-meta">Publicado: 15/11/2025</div>
         <h1>
@@ -379,7 +394,7 @@ jobs:
     </main>
 
     <footer class="footer">
-      <p>&copy; 2025 Iván Vázquez Vidador</p>
+      <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
     </footer>
 
     <a
