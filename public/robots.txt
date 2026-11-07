@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /src/assets/docs/
+
+Sitemap: https://ivanvazquezv.com/sitemap.xml
