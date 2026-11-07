@@ -28,6 +28,7 @@
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <header class="navbar">
     <div class="logo">
       <div class="logo-wrapper">
@@ -52,7 +53,7 @@
           <a href="/projects.html"><i class="fas fa-code"></i> Proyectos</a>
         </li>
         <li>
-          <a href="/cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
+          <a href="/cv.html" aria-current="page"><i class="fas fa-file-alt"></i> Trayectoria</a>
         </li>
         <li>
           <a href="/training.html"><i class="fas fa-chalkboard-teacher"></i> Formación</a>
@@ -66,25 +67,25 @@
       </ul>
 
       <div class="social-icons">
-        <a href="https://github.com/ivazquezv" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/ivazquezv" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
 
-        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" aria-label="YouTube">
+        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
 
-        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
 
-        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank"
+        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank" rel="noopener noreferrer"
           aria-label="Stack Overflow">
           <i class="fab fa-stack-overflow"></i>
         </a>
 
         <!-- Nuevo: LinkedIn -->
-        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -92,7 +93,8 @@
     </nav>
   </header>
 
-  <main class="hero">
+  <main id="main-content">
+  <section class="hero">
     <h1>Trayectoria profesional</h1>
     <p>
       Recorrido técnico, estratégico y formativo que refleja mi evolución como
@@ -100,9 +102,9 @@
       representa un compromiso con la excelencia, la claridad operativa y la
       mejora continua.
     </p>
-  </main>
+  </section>
   <br />
-  <main class="cv-content">
+  <div class="cv-content">
     <section class="cv-summary">
       <h2><i class="fas fa-user-tie"></i> Perfil profesional</h2>
       <p>
@@ -248,10 +250,11 @@
         <i class="fas fa-file-pdf"></i> Descargar CV en PDF
       </a>
     </section>
-  </main>
+  </div>
 
+  </main>
   <footer class="footer">
-    <p>&copy; 2025 Iván Vázquez Vidador</p>
+    <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
   </footer>
 
   <a href="#top" class="scroll-top" aria-label="Volver arriba" title="Volver al inicio de la página">

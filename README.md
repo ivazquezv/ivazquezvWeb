@@ -58,3 +58,14 @@ No se ha encontrado una integración de analítica en el código del repositorio
 Para completar la medición, revisar el proyecto en Netlify y las propiedades existentes de Google Search Console y Analytics. Search Console muestra impresiones, consultas y clics procedentes de Google; no representa todas las visitas. Para tráfico de todas las fuentes, configurar el sistema de analítica elegido y verificar una visita real en el panel antes de dar la instalación por terminada. Si requiere consentimiento, cargarlo únicamente cuando corresponda y permitir retirar ese consentimiento.
 
 En Search Console, verificar el dominio mediante el registro DNS que genere la cuenta (en el proveedor que gestione los DNS autoritativos), enviar `https://ivanvazquezv.com/sitemap.xml` e inspeccionar la portada. No publicar códigos de verificación inventados. Medir la evolución de clics, impresiones, páginas de entrada y contactos; no prometer posiciones concretas.
+
+
+## Actualización del portfolio
+
+La portada presenta proyectos destacados (WodIO y Encryptify), áreas de trabajo, artículos y acceso directo al contacto. WodIO dispone de una ficha en `projects.html#wodio`, basada en la descripción del proyecto. Su enlace de contacto completa el mensaje con una consulta sobre WodIO.
+
+El formulario conserva la integración existente de EmailJS. El teléfono es opcional; los estados de envío son visibles y accesibles. Se bloquean los envíos duplicados mientras se procesa una solicitud y se conserva el texto en caso de error. La disponibilidad y entrega real dependen de la configuración de la cuenta de EmailJS.
+
+La navegación dispone de enlace para saltar al contenido, página activa, control de teclado y cierre del menú al seleccionar un enlace. El diseño respeta la preferencia de movimiento reducido y adapta la portada, tarjetas y navegación a pantallas pequeñas.
+
+Validación realizada: estructura de las nueve páginas, IDs únicos, un H1 y un main por página, referencias locales y anclas; sintaxis JavaScript y comprobación de diferencias; simulación de envío correcto, error y servicio no disponible sin enviar correos. La revisión visual en navegador sigue pendiente porque el entorno bloquea la apertura del servidor local.

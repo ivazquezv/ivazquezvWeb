@@ -28,6 +28,7 @@
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <header class="navbar">
     <div class="logo">
       <div class="logo-wrapper">
@@ -49,7 +50,7 @@
           <a href="/about.html"><i class="fas fa-user"></i> Sobre mí</a>
         </li>
         <li>
-          <a href="/projects.html"><i class="fas fa-code"></i> Proyectos</a>
+          <a href="/projects.html" aria-current="page"><i class="fas fa-code"></i> Proyectos</a>
         </li>
         <li>
           <a href="/cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
@@ -65,25 +66,25 @@
         </li>
       </ul>
       <div class="social-icons">
-        <a href="https://github.com/ivazquezv" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/ivazquezv" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
 
-        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" aria-label="YouTube">
+        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
 
-        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
 
-        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank"
+        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank" rel="noopener noreferrer"
           aria-label="Stack Overflow">
           <i class="fab fa-stack-overflow"></i>
         </a>
 
         <!-- Nuevo: LinkedIn -->
-        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -91,13 +92,14 @@
     </nav>
   </header>
 
-  <main class="hero">
+  <main id="main-content">
+  <section class="hero">
     <h1>Proyectos y experiencia</h1>
     <p>
       Innovación técnica, gestión estratégica y liderazgo operativo en
       múltiples sectores.
     </p>
-  </main>
+  </section>
 
   <section class="project-index">
     <nav class="project-nav">
@@ -114,6 +116,17 @@
       <i class="fas fa-code"></i> Proyectos de Desarrollo de Software
     </h2>
     <ul class="timeline-list">
+      <li id="wodio" class="project-spotlight">
+        <div class="timeline-date">Proyecto destacado</div>
+        <div class="timeline-content">
+          <p class="eyebrow">GESTIÓN DEPORTIVA</p>
+          <h3>WodIO</h3>
+          <p>Plataforma de gestión para boxes de CrossTraining, gimnasios y entrenamiento funcional. Conecta a gestores, coaches y atletas en una misma aplicación.</p>
+          <p>Centraliza clases, horarios, reservas y asistencia, junto con la programación de entrenamientos y el seguimiento del progreso del atleta.</p>
+          <ul class="tech-tags" aria-label="Tecnologías de WodIO"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+          <a class="text-link" href="/contact.html?project=WodIO">Consultar sobre WodIO →</a>
+        </div>
+      </li>
       <li>
         <div class="timeline-date">2025</div>
         <div class="timeline-content">
@@ -206,7 +219,7 @@
       <li>
         <div class="timeline-date">2023–2025</div>
         <div class="timeline-content">
-          <h3>Encryptify</h3>
+          <h3 id="encryptify">Encryptify</h3>
           <p>
             Suite modular de cifrado para educación, análisis forense y
             seguridad web.
@@ -323,8 +336,9 @@
       <i class="fas fa-award"></i> Leyenda: ▰▰▰▰ = Experto | ▰▰▰▱ = Avanzado
     </p>
   </section>
+  </main>
   <footer class="footer">
-    <p>&copy; 2025 Iván Vázquez Vidador</p>
+    <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
   </footer>
   <a href="#top" class="scroll-top" aria-label="Volver arriba" title="Volver al inicio de la página">
     <i class="fas fa-arrow-up"></i>

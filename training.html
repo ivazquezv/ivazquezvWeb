@@ -26,6 +26,7 @@
 </head>
 
 <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <header class="navbar">
     <div class="logo">
       <div class="logo-wrapper">
@@ -53,7 +54,7 @@
           <a href="/cv.html"><i class="fas fa-file-alt"></i> Trayectoria</a>
         </li>
         <li>
-          <a href="/training.html"><i class="fas fa-chalkboard-teacher"></i> Formación</a>
+          <a href="/training.html" aria-current="page"><i class="fas fa-chalkboard-teacher"></i> Formación</a>
         </li>
         <li>
           <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
@@ -65,25 +66,25 @@
 
       <!-- Iconos sociales integrados en el menú -->
       <div class="social-icons">
-        <a href="https://github.com/ivazquezv" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/ivazquezv" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
 
-        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" aria-label="YouTube">
+        <a href="https://www.youtube.com/@ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <i class="fab fa-youtube"></i>
         </a>
 
-        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" aria-label="Instagram">
+        <a href="https://www.instagram.com/ivanvazquezv" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
 
-        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank"
+        <a href="https://es.stackoverflow.com/users/337290/iv%C3%A1n-v%C3%A1zquez-vidador" target="_blank" rel="noopener noreferrer"
           aria-label="Stack Overflow">
           <i class="fab fa-stack-overflow"></i>
         </a>
 
         <!-- Nuevo: LinkedIn -->
-        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/ivanvazquezvidador/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -91,13 +92,14 @@
     </nav>
   </header>
 
-  <main class="hero">
+  <main id="main-content">
+  <section class="hero">
     <h1>Formación y Certificaciones</h1>
     <p>
       Recorrido académico, técnico y profesional que respalda mi experiencia
       como desarrollador y formador.
     </p>
-  </main>
+  </section>
 
   <section class="project-index">
     <nav class="project-nav">
@@ -279,7 +281,7 @@
       <!-- Nuevo curso añadido -->
       <li>
         Analista de Datos (2026) – Edutin Academy
-        <a href="https://app.edutin.com/verify/18861827" target="_blank">
+        <a href="https://app.edutin.com/verify/18861827" target="_blank" rel="noopener noreferrer">
           <i class="fas fa-file-alt"></i> Ver certificado
         </a>
       </li>
@@ -316,8 +318,9 @@
     </a>
   </section>
 
+  </main>
   <footer class="footer">
-    <p>&copy; 2025 Iván Vázquez Vidador</p>
+    <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
   </footer>
 
   <a href="#top" class="scroll-top" aria-label="Volver arriba" title="Volver al inicio de la página">
