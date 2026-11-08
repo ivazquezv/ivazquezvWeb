@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis de datos con IA: de la pregunta a una decisión verificable | Iván Vázquez Vidador</title>
+  <meta name="description" content="Un flujo práctico para analizar datos con inteligencia artificial: preparar la información, formular preguntas, validar cálculos y convertir resultados en decisiones." />
+  <link rel="canonical" href="https://ivanvazquezv.com/src/pages/post/post-analisis-datos-ia.html" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Iván Vázquez Vidador" />
+  <meta property="og:title" content="Análisis de datos con IA: de la pregunta a una decisión verificable" />
+  <meta property="og:description" content="Un flujo práctico para analizar datos con inteligencia artificial: preparar la información, formular preguntas, validar cálculos y convertir resultados en decisiones." />
+  <meta property="og:url" content="https://ivanvazquezv.com/src/pages/post/post-analisis-datos-ia.html" />
+  <meta property="og:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
+  <meta property="og:image:alt" content="Iván Vázquez Vidador" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Análisis de datos con IA: de la pregunta a una decisión verificable" />
+  <meta name="twitter:description" content="Un flujo práctico para analizar datos con inteligencia artificial: preparar la información, formular preguntas, validar cálculos y convertir resultados en decisiones." />
+  <meta name="twitter:image" content="https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg" />
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Análisis de datos con IA: de la pregunta a una decisión verificable", "description": "Un flujo práctico para analizar datos con inteligencia artificial: preparar la información, formular preguntas, validar cálculos y convertir resultados en decisiones.", "datePublished": "2026-11-08", "dateModified": "2026-11-08", "author": {"@type": "Person", "name": "Iván Vázquez Vidador", "url": "https://ivanvazquezv.com/about"}, "mainEntityOfPage": "https://ivanvazquezv.com/src/pages/post/post-analisis-datos-ia.html", "inLanguage": "es", "image": "https://ivanvazquezv.com/src/assets/images/ivan-profile.jpg"}</script>
+  </head>
+  <body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <header class="navbar">
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img
+            src="/src/assets/images/logo.png"
+            alt="Logotipo Iván Vázquez"
+            class="logo-img"
+          />
+        </div>
+        <span>Iván Vázquez Vidador</span>
+      </div>
+
+      <button class="hamburger" aria-label="Abrir menú" aria-controls="main-navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu" id="main-navigation" aria-label="Navegación principal">
+        <ul>
+          <li>
+            <a href="/"><i class="fas fa-house"></i> Inicio</a>
+          </li>
+          <li>
+            <a href="/blog.html"><i class="fas fa-pen-nib"></i> Blog</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content" class="blog-post">
+      <article class="post-content">
+        <p class="blog-meta"><time datetime="2026-11-08">8 de noviembre de 2026</time> · Iván Vázquez Vidador · IA y análisis de datos</p>
+        <h1>Análisis de datos con IA: de la pregunta a una decisión verificable</h1>
+        <p>Una hoja de cálculo puede contener miles de registros y, aun así, no responder a la pregunta que importa. La inteligencia artificial puede ayudar a explorar esa información, proponer consultas o explicar variaciones. El reto está en convertir sus respuestas en conclusiones que podamos comprobar.</p>
+        <p>Tras mi formación en <a href="/training.html#certificados">Inteligencia artificial para análisis de datos</a>, comparto un enfoque práctico para combinar criterio analítico y herramientas de IA. El ejemplo de este artículo es ficticio: no describe resultados de Saltoki, WodIO ni de ningún cliente.</p>
+        <div class="article-summary"><strong>La idea central:</strong> definir la pregunta, preparar los datos, calcular con reglas explícitas y contrastar la interpretación antes de tomar decisiones.</div>
+        <nav aria-label="Contenido del artículo"><ul>
+          <li><a href="#pregunta">1. Empezar por una pregunta concreta</a></li>
+          <li><a href="#preparacion">2. Preparar los datos y su contexto</a></li>
+          <li><a href="#ejemplo">3. Un ejemplo de ocupación de clases</a></li>
+          <li><a href="#prompt">4. Pedir un análisis reproducible</a></li>
+          <li><a href="#validacion">5. Validar antes de decidir</a></li>
+          <li><a href="#accion">6. Convertir el análisis en una acción</a></li>
+        </ul></nav>
+        <h2 id="pregunta">1. Empezar por una pregunta concreta</h2>
+        <p>«Analiza mis datos» deja demasiadas decisiones abiertas. Antes de utilizar IA conviene concretar qué queremos saber, para qué periodo y con qué indicador. Por ejemplo: «¿Qué franjas horarias tienen menor ocupación durante las últimas cuatro semanas?».</p>
+        <p>También hay que fijar qué cuenta como ocupación: reservas, asistentes reales o plazas vendidas. Son medidas distintas. Una respuesta puede estar bien calculada y ser inútil si utiliza la definición equivocada.</p>
+        <h2 id="preparacion">2. Preparar los datos y su contexto</h2>
+        <p>La primera tarea es revisar la fuente: fechas, unidades, duplicados, valores ausentes y cobertura del periodo. No eliminaría una fila duplicada sin comprobar si representa un error o dos eventos legítimos. Tampoco trataría automáticamente una asistencia desconocida como cero.</p>
+        <p>Un pequeño diccionario de datos evita ambigüedades. Para cada columna, documenta qué significa, qué formato tiene y cómo debe interpretarse un valor vacío. Conserva una copia de la fuente y registra los cambios para poder repetir el análisis.</p>
+        <p>La IA puede proponer reglas de limpieza o consultas, pero su ejecución debe revisarse. La documentación de <a href="https://pandas.pydata.org/docs/user_guide/indexing.html#duplicate-data" target="_blank" rel="noopener noreferrer">pandas sobre datos duplicados</a> muestra herramientas para identificarlos; decidir si se eliminan requiere conocer los datos.</p>
+        <h2 id="ejemplo">3. Un ejemplo de ocupación de clases</h2>
+        <p>Imaginemos un centro deportivo que agrupa clases por franja horaria. Las cifras siguientes son inventadas para explicar el método. Las plazas ofertadas son la suma de la capacidad de las clases efectivamente celebradas; las asistencias cuentan participaciones, no personas únicas.</p>
+        <div class="article-table-wrap" role="region" aria-label="Ejemplo de ocupación por franja" tabindex="0">
+          <table class="article-table"><caption>Ejemplo ficticio de cuatro semanas</caption><thead><tr><th scope="col">Franja</th><th scope="col">Plazas ofertadas</th><th scope="col">Asistencias</th><th scope="col">Ocupación</th></tr></thead><tbody>
+            <tr><th scope="row">Mañana</th><td>240</td><td>144</td><td>60 %</td></tr>
+            <tr><th scope="row">Mediodía</th><td>160</td><td>64</td><td>40 %</td></tr>
+            <tr><th scope="row">Tarde</th><td>320</td><td>272</td><td>85 %</td></tr>
+            <tr><th scope="row">Total</th><td>720</td><td>480</td><td>66,7 %</td></tr>
+          </tbody></table>
+        </div>
+        <p>La ocupación se obtiene dividiendo asistencias entre plazas ofertadas. El total es <code>480 / 720 × 100 = 66,7 %</code>, redondeado a un decimal. No es la media simple de los tres porcentajes: cada franja ofrece una capacidad diferente.</p>
+        <p>La IA podría señalar el mediodía como franja de menor ocupación. Eso es una observación, no una explicación. Para atribuir causas habría que revisar cambios de horario, cancelaciones, festivos, demanda y otras circunstancias.</p>
+        <h2 id="prompt">4. Pedir un análisis reproducible</h2>
+        <p>Un encargo útil especifica el objetivo, las columnas, la fórmula y las comprobaciones. Este sería un punto de partida para trabajar con los datos ficticios del ejemplo:</p>
+        <pre><code>Analiza la ocupación por franja de estas cuatro semanas.
+Usa ocupación = suma(asistencias) / suma(plazas ofertadas).
+No calcules la media simple de porcentajes.
+Señala valores ausentes y denominadores iguales a cero.
+Devuelve los cálculos, las reglas de exclusión y una tabla de control.
+Separa observaciones, posibles explicaciones y datos que faltan.
+No inventes causas ni completes valores sin indicarlo.</code></pre>
+        <p>Solicitar estas comprobaciones mejora la trazabilidad, pero no garantiza una respuesta correcta. Si la herramienta genera SQL, fórmulas o código, revisa la lógica y ejecútalos en un entorno apropiado. Pide que los resultados puedan contrastarse con la fuente.</p>
+        <h2 id="validacion">5. Validar antes de decidir</h2>
+        <p>Comprobaría al menos cuatro aspectos: que el total de registros coincide con la fuente, que los filtros corresponden al periodo solicitado, que las unidades son coherentes y que una muestra de cálculos se puede reproducir de forma independiente.</p>
+        <p>En un panel también importan las relaciones entre tablas y las medidas. Microsoft explica cómo <a href="https://learn.microsoft.com/en-us/power-bi/create-reports/tutorial-copilot-power-bi-prepare-model" target="_blank" rel="noopener noreferrer">preparar un modelo de datos para su uso con IA</a>. Un vocabulario claro y métricas bien definidas ayudan a reducir interpretaciones ambiguas.</p>
+        <p>Protege además la información de origen: utiliza datos agregados o anonimizados cuando sea posible y trabaja en entornos autorizados. No hace falta compartir nombres, correos o información de pagos para estudiar una ocupación agregada por franja.</p>
+        <h2 id="accion">6. Convertir el análisis en una acción</h2>
+        <p>Una posible decisión sería probar un cambio limitado en la franja de mediodía y medir después su efecto. Antes habría que fijar la duración de la prueba, el indicador de éxito y un periodo comparable. Una mejora de ocupación por sí sola no demuestra que el cambio haya causado el resultado.</p>
+        <p>El entregable puede ser sencillo: la pregunta, la fuente, las reglas de cálculo, una tabla o gráfico y una recomendación con sus límites. Documentar lo que todavía no sabemos es tan útil como resumir lo que muestran los datos.</p>
+        <p>La IA aporta valor cuando facilita explorar, calcular y comunicar sin perder la capacidad de comprobar. La decisión final sigue necesitando contexto, datos fiables y revisión humana.</p>
+        <h2>Fuentes y lecturas</h2>
+        <ul>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/indexing.html#duplicate-data" target="_blank" rel="noopener noreferrer">pandas: identificación y tratamiento de duplicados.</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/tutorial-copilot-power-bi-prepare-model" target="_blank" rel="noopener noreferrer">Microsoft Learn: preparación de modelos de Power BI para IA.</a></li>
+          <li><a href="https://support.microsoft.com/en-gb/microsoft-365-copilot/validate-copilot-output" target="_blank" rel="noopener noreferrer">Microsoft: validación de resultados generados con Copilot.</a></li>
+        </ul>
+        <div class="post-actions"><a href="/blog.html#ai" class="cta-button">← Volver al blog</a></div>
+      </article>
+    </main>
+  <footer class="footer">
+      <p>&copy; <span data-current-year>2026</span> Iván Vázquez Vidador · <a href="/contact.html">Contacto</a></p>
+    </footer>
+
+    <a
+      href="#top"
+      class="scroll-top"
+      aria-label="Volver arriba"
+      title="Volver al inicio de la página"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="/src/scripts/main.js"></script>
+  </body>
+</html>
