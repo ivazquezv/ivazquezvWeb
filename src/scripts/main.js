@@ -65,3 +65,39 @@ if (!motionPreference.matches && "IntersectionObserver" in window && "animate" i
     }
   });
 }
+
+
+// A bounded parallax on the home hero, with one update per animation frame.
+const homeHero = document.querySelector(".home-hero");
+if (homeHero) {
+  const depthPreference = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+  let depthFrame = 0;
+  const updateDepth = () => {
+    depthFrame = 0;
+    if (!depthPreference.matches) return;
+    const bounds = homeHero.getBoundingClientRect();
+    if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
+    const distance = Math.max(0, -bounds.top);
+    homeHero.style.setProperty("--portrait-depth", `${Math.min(44, distance * 0.13)}px`);
+    homeHero.style.setProperty("--copy-depth", `${-Math.min(16, distance * 0.045)}px`);
+  };
+  const scheduleDepth = () => {
+    if (depthPreference.matches && !depthFrame) depthFrame = window.requestAnimationFrame(updateDepth);
+  };
+  const syncDepth = () => {
+    if (depthPreference.matches) {
+      window.addEventListener("scroll", scheduleDepth, { passive: true });
+      window.addEventListener("resize", scheduleDepth, { passive: true });
+      scheduleDepth();
+    } else {
+      window.removeEventListener("scroll", scheduleDepth);
+      window.removeEventListener("resize", scheduleDepth);
+      window.cancelAnimationFrame(depthFrame);
+      depthFrame = 0;
+      homeHero.style.removeProperty("--portrait-depth");
+      homeHero.style.removeProperty("--copy-depth");
+    }
+  };
+  depthPreference.addEventListener("change", syncDepth);
+  syncDepth();
+}
