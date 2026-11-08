@@ -37,3 +37,31 @@ if (hamburger && navMenu) {
     }
   });
 }
+
+
+// Animate only intersecting content; the page stays visible without JavaScript.
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+if (!motionPreference.matches && "IntersectionObserver" in window && "animate" in Element.prototype) {
+  const activeAnimations = new Set();
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      revealObserver.unobserve(entry.target);
+      if (motionPreference.matches) return;
+      const animation = entry.target.animate(
+        [{ opacity: 0.65, translate: "0 16px" }, { opacity: 1, translate: "0 0" }],
+        { duration: 600, easing: "cubic-bezier(.22, 1, .36, 1)" }
+      );
+      activeAnimations.add(animation);
+      animation.finished.then(() => activeAnimations.delete(animation), () => activeAnimations.delete(animation));
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".hero-copy, .hero-portrait, .section-heading, .feature-card, .expertise-list article, .reading-link, .blog-card, .training-section, .cv-content section, .profile-card, .contact-form").forEach((element) => revealObserver.observe(element));
+  motionPreference.addEventListener("change", () => {
+    if (motionPreference.matches) {
+      revealObserver.disconnect();
+      activeAnimations.forEach((animation) => animation.cancel());
+      activeAnimations.clear();
+    }
+  });
+}
