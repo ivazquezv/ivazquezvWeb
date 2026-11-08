@@ -1196,10 +1196,6 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
 .footer { border-top: 1px solid #243147; background: #0a0f1c; padding: 2rem 1.5rem; }
 .footer a:hover { color: #fff; text-decoration: underline; }
 .timeline { max-width: 1000px; margin-inline: auto; }
-.project-spotlight { background: #111f30; border: 1px solid #304b68; border-radius: .8rem; padding: 2rem !important; margin-top: 2rem; scroll-margin-top: 7rem; }
-.project-spotlight .tech-tags li { margin: 0; padding: .35rem .65rem; }
-.project-spotlight .tech-tags li::before { display: none; }
-.project-spotlight .timeline-content h3 { font-size: 2rem; }
 .hero h1 { line-height: 1.2; }
 .hero p { max-width: 740px; margin-inline: auto; }
 .blog-post, .cv-content { margin-block: 2rem; }
@@ -1244,9 +1240,18 @@ button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
  .profile-card { padding: 1.5rem; min-width: 0; }
  .project-nav, .blog-nav { gap: .4rem; }
  .timeline { padding-inline: 1rem; }
- .project-spotlight { padding: 1.2rem !important; }
 }
 @media (prefers-reduced-motion: reduce) {
  html { scroll-behavior: auto; }
  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Data analysis article: readable tables on small screens. */
+.article-table-wrap { overflow-x: auto; margin-block: 1.5rem; }
+.article-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.article-table caption { text-align: left; color: var(--color-muted); padding-bottom: .75rem; }
+.article-table th, .article-table td { padding: .8rem; text-align: left; border-bottom: 1px solid var(--color-border); }
+.article-table th { color: var(--color-accent); background: var(--color-bg); }
+.post-content a { color: #a7caff; text-decoration: underline; text-underline-offset: 3px; }
+.post-content .cta-button { color: #fff; text-decoration: none; }
+.article-summary { padding: 1.25rem; border-left: 3px solid var(--color-accent); background: var(--color-bg); margin-block: 1.5rem; }
