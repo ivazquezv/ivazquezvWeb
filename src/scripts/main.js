@@ -67,25 +67,37 @@ if (!motionPreference.matches && "IntersectionObserver" in window && "animate" i
 }
 
 
-// A bounded parallax on the home hero, with one update per animation frame.
+// Parallax follows the system preference until explicitly enabled on this page.
 const homeHero = document.querySelector(".home-hero");
 if (homeHero) {
-  const depthPreference = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+  const depthDevice = window.matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)");
+  let depthOverride = false;
+  let localDepthOff = false;
   let depthFrame = 0;
+  const depthToggle = document.createElement("button");
+  depthToggle.type = "button";
+  depthToggle.className = "depth-toggle";
+  homeHero.querySelector(".hero-copy").append(depthToggle);
+  const depthEnabled = () => !localDepthOff && depthDevice.matches && (depthOverride || !motionPreference.matches);
   const updateDepth = () => {
     depthFrame = 0;
-    if (!depthPreference.matches) return;
+    if (!depthEnabled()) return;
     const bounds = homeHero.getBoundingClientRect();
     if (bounds.bottom < 0 || bounds.top > window.innerHeight) return;
-    const distance = Math.max(0, -bounds.top);
-    homeHero.style.setProperty("--portrait-depth", `${Math.min(44, distance * 0.13)}px`);
-    homeHero.style.setProperty("--copy-depth", `${-Math.min(16, distance * 0.045)}px`);
+    const distance = Math.max(0, window.scrollY);
+    homeHero.style.setProperty("--portrait-depth", `${Math.min(80, distance * 0.22)}px`);
+    homeHero.style.setProperty("--copy-depth", `${-Math.min(24, distance * 0.065)}px`);
   };
   const scheduleDepth = () => {
-    if (depthPreference.matches && !depthFrame) depthFrame = window.requestAnimationFrame(updateDepth);
+    if (depthEnabled() && !depthFrame) depthFrame = window.requestAnimationFrame(updateDepth);
   };
   const syncDepth = () => {
-    if (depthPreference.matches) {
+    const enabled = depthEnabled();
+    depthToggle.hidden = !depthDevice.matches;
+    depthToggle.setAttribute("aria-pressed", String(enabled));
+    depthToggle.textContent = enabled ? "Desactivar parallax" : "Activar parallax";
+    homeHero.classList.toggle("parallax-active", enabled);
+    if (enabled) {
       window.addEventListener("scroll", scheduleDepth, { passive: true });
       window.addEventListener("resize", scheduleDepth, { passive: true });
       scheduleDepth();
@@ -98,6 +110,18 @@ if (homeHero) {
       homeHero.style.removeProperty("--copy-depth");
     }
   };
-  depthPreference.addEventListener("change", syncDepth);
+  depthToggle.addEventListener("click", () => {
+    if (depthEnabled()) {
+      depthOverride = false;
+      // A local opt-out also works when the system allows animations.
+      localDepthOff = true;
+    } else {
+      localDepthOff = false;
+      depthOverride = true;
+    }
+    syncDepth();
+  });
+  depthDevice.addEventListener("change", syncDepth);
+  motionPreference.addEventListener("change", () => { depthOverride = false; syncDepth(); });
   syncDepth();
 }
